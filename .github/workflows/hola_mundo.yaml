@@ -1,5 +1,5 @@
-name: Primer workflow
-run-name: ¡Este es mi primer workflow!
+name: First workflow
+run-name: ¡This is my first workflow!
 on: [push]
 jobs:
   hola-mundo:
