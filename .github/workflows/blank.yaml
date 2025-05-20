@@ -1,22 +1,13 @@
-name: Hola Mundo
-
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
-
+name: Primer workflow
+run-name: ¡Este es mi primer workflow!
+on: [push]
 jobs:
   hola-mundo:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Clonar el repositorio
+      - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Configurar Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-
-      - name: Ejecutar hola.py
-        run: python hola.py
+      - name: Definir variable
+        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+      - name: Correr script
+        run: python hola_mundo.py
