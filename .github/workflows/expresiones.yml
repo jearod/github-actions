@@ -14,19 +14,19 @@ on:
                 type: string
 jobs:
     csv:
-        if: ${{ inputs.ftype == csv }}
+        if: ${{ inputs.ftype == 'csv' }}
         runs-on: ubuntu-latest   
         steps:
             - name: Print type
               run: echo ${{ inputs.fname}} is a Comma Separated Values file
     txt:
-        if: ${{ inputs.ftype == txt }}
+        if: ${{ inputs.ftype == 'txt' }}
         runs-on: ubuntu-latest   
         steps:
             - name: Print type
               run: echo ${{ inputs.fname}} is a Plain Text file
     xlsx:
-        if: ${{ inputs.ftype == xlsx }}
+        if: ${{ inputs.ftype == 'xlsx' }}
         runs-on: ubuntu-latest   
         steps:
             - name: Print type
