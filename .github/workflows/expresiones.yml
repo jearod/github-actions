@@ -1,0 +1,33 @@
+name: Step 3
+run-name: This is my third Workflow!
+
+on:
+    workflow_dispatch:
+        inputs:
+            fname:
+                description: 'File name'
+                required: true
+                type: string
+            ftype:
+                description: 'File type'
+                required: true
+                type: string
+jobs:
+    csv:
+        if: ${{ inputs.ftype == csv }}
+        runs-on: ubuntu-latest   
+        steps:
+            - name: Print type
+              run: echo ${{ inputs.fname}} is a Comma Separated Values file
+    txt:
+        if: ${{ inputs.ftype == txt }}
+        runs-on: ubuntu-latest   
+        steps:
+            - name: Print type
+              run: echo ${{ inputs.fname}} is a Plain Text file
+    xlsx:
+        if: ${{ inputs.ftype == xlsx }}
+        runs-on: ubuntu-latest   
+        steps:
+            - name: Print type
+              run: echo ${{ inputs.fname}} is a Microsoft Excel Open XML Spreadsheet file
