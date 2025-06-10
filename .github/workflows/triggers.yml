@@ -15,11 +15,11 @@ on:
 
 jobs:
   run_if:
-    if: startsWith(github.head_ref, 'aprendiendo-github-actions/')
+    if: contains(github.head_ref, '*aprendiendo-github-actions*')
     runs-on: ubuntu-latest
     steps:
       - name: Print branch name
-        run: echo "The head of this PR starts with 'aprendiendo-github-actions/'"
+        run: echo "The head of this PR contaions 'aprendiendo-github-actions"
       - name: Checkout
         uses: actions/checkout@v3
       - name: Variable definition
