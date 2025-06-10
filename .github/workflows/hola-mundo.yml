@@ -1,4 +1,4 @@
-name: First workflow
+name: Step 1
 run-name: ¡This is my first workflow!
 on: [push]
 jobs:
