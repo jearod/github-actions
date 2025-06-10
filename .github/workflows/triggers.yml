@@ -1,0 +1,28 @@
+name: Step 2
+run-name: ¡This is my second workflow!
+
+on:
+  pull_request:
+    types:
+      - opened
+
+  issues:
+    types:
+      - opened
+
+  issue_comment: 
+    types: [created, deleted]
+
+jobs:
+  run_if:
+    if: startsWith(github.head_ref, 'aprendiendo-github-actions/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print branch name
+        run: echo "The head of this PR starts with 'aprendiendo-github-actions/'"
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Variable definition
+        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+      - name: Run script
+        run: python hola_mundo.py
