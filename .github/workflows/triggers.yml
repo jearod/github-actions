@@ -15,7 +15,7 @@ on:
 
 jobs:
   run_if:
-    if: contains(github.head_ref, '*aprendiendo-github-actions*')
+    if: contains(github.head_ref, 'aprendiendo-github-actions')
     runs-on: ubuntu-latest
     steps:
       - name: Print branch name
