@@ -1,0 +1,23 @@
+name: Step 5
+on:
+  push
+env:
+  DAY: Tuesday
+jobs:
+  show-variables:
+    env:
+      VARS: ${{ toJSON(vars) }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: print variables
+        run: echo $VARS
+  hello-variables:
+    runs-on: ubuntu-latest
+    env:
+      GREETING: Hello
+    steps:
+      - name: greet
+        run : echo $GREETING, $NAME, $PEOPLE. Today is $DAY
+        env:
+          PEOPLE: Ladys and Gentlemen
+          NAME: ${{ vars.NAME }}
