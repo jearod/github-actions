@@ -1,0 +1,26 @@
+name: contexto
+on: 
+  push:
+    branches:
+      - 'main'
+      - 'releases/**'
+
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: 'Commit ID'
+        required: true
+        type: string
+
+jobs:
+  check-main:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run : echo "Deployment in $GITHUB_REF"''
+
+  check-if:
+    if: ${{ github.sha == inputs.commit }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "The commit $GITHUB_SHA" is the latest
